@@ -1,4 +1,5 @@
 import ChakraProviderComponent from '@/Chakra/ChakraProviderComponent'
+import ProviderComponent from '@/Redux/ProviderComponent'
 
 export const metadata = {
 	title: 'Todo List',
@@ -13,7 +14,11 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body>
-				<ChakraProviderComponent>{children}</ChakraProviderComponent>
+				<ProviderComponent>
+					<ChakraProviderComponent>
+						{children}
+					</ChakraProviderComponent>
+				</ProviderComponent>
 			</body>
 		</html>
 	)
