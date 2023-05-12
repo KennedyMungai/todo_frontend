@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import build from 'next/dist/build'
 
 interface Task {
 	task_content: string
