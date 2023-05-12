@@ -1,3 +1,5 @@
+import { Box, Flex, Text } from '@chakra-ui/react'
+
 type Props = {
 	task_content: string
 	is_complete: boolean
@@ -9,7 +11,17 @@ const SingleTaskDisplay = ({
 	is_complete,
 	date_created
 }: Props) => {
-	return <div>SingleTaskDisplay</div>
+	return (
+		<Flex direction='column'>
+			<Box>
+				<Text>{task_content}</Text>
+			</Box>
+			<Flex gap={'full'}>
+				<Text>{date_created.toISOString()}</Text>
+				{is_complete ? '😄' : '😠'}
+			</Flex>
+		</Flex>
+	)
 }
 
 export default SingleTaskDisplay
