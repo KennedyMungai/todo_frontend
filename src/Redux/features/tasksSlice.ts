@@ -2,8 +2,8 @@ import axios from 'axios'
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const getAllTasks = createAsyncThunk('tasks/getAllTasks', async () => {
-	const tasks = await axios.get('http://localhost:8000/tasks')
-	return tasks.data
+	const tasks: Tasks = await axios.get('http://localhost:8000/tasks')
+	return tasks
 })
 
 interface Task {
@@ -12,6 +12,8 @@ interface Task {
 	date_created: Date
 	is_loading: boolean
 }
+
+type Tasks = Task[]
 
 const initialState: Task = {
 	task_content: '',
@@ -24,24 +26,7 @@ const tasksSlice = createSlice({
 	name: 'task',
 	initialState,
 	reducers: {},
-	extraReducers: (builder) => {
-		builder
-			.addCase(getAllTasks.pending, (state) => {
-				state.is_loading = true
-			})
-			.addCase(
-				getAllTasks.fulfilled,
-				(state, action: PayloadAction<Task>) => {
-					state.is_loading = false
-					state.task_content = action.payload.task_content
-					state.is_complete = action.payload.is_complete
-					state.date_created = action.payload.date_created
-				}
-			)
-			.addCase(getAllTasks.rejected, (state) => {
-				state.is_loading = false
-			})
-	}
+	extraReducers: (builder) => {}
 })
 
 export default tasksSlice.reducer
