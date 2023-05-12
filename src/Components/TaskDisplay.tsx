@@ -1,6 +1,7 @@
 'use client'
 import { useAppSelector } from '@/Redux/hooks'
 import { Card, CardBody, Flex, Text, Divider } from '@chakra-ui/react'
+import SingleTaskDisplay from './SingleTaskDisplay'
 
 const TaskDisplay = () => {
 	const { tasks } = useAppSelector((state) => state.tasks)
@@ -27,6 +28,11 @@ const TaskDisplay = () => {
 					Testing
 				</Text>
 				<Divider />
+				<Flex direction={'column'} gap={'0.5rem'} p={'0.5rem'}>
+					{tasks.map((task) => {
+						return <SingleTaskDisplay key={task.id} />
+					})}
+				</Flex>
 			</Flex>
 		</Flex>
 	)
