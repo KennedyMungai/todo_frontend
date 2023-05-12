@@ -7,6 +7,7 @@ export const getAllTasks = createAsyncThunk('tasks/getAllTasks', async () => {
 })
 
 interface Task {
+	id: string
 	task_content: string
 	is_complete: boolean
 	date_created: Date
