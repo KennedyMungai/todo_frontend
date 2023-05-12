@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, Flex, Text } from '@chakra-ui/react'
+import { Box, Card, CardBody, Divider, Flex, Text } from '@chakra-ui/react'
 
 type Props = {
 	task_content: string
@@ -14,9 +14,12 @@ const SingleTaskDisplay = ({
 	return (
 		<Card>
 			<CardBody>
-				<Text>
-					View a summary of all your customers over the last month.
-				</Text>
+				<Text>{task_content}</Text>
+				<Divider />
+				<Flex flexGrow={'grow'}>
+					<Text>{date_created.toISOString()}</Text>
+					{is_complete ? '😃' : '☹️'}
+				</Flex>
 			</CardBody>
 		</Card>
 	)
