@@ -1,8 +1,6 @@
 import { useAppSelector } from '@/Redux/hooks'
 
-type Props = {}
-
-const TaskDisplay = (props: Props) => {
+const TaskDisplay = () => {
 	return <div>TaskDisplay</div>
 }
 
