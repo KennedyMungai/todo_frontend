@@ -21,3 +21,5 @@ const tasksSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {}
 })
+
+export default tasksSlice.reducer
