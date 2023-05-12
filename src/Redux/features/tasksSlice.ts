@@ -12,10 +12,8 @@ interface Task {
 	date_created: Date
 }
 
-type TasksType = Task[]
-
 interface Tasks {
-	tasks: TasksType
+	tasks: Task[]
 	is_loading: boolean
 }
 
