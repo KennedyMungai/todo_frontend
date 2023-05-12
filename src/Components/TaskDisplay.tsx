@@ -1,10 +1,17 @@
 'use client'
-import { useAppSelector } from '@/Redux/hooks'
+import { useAppSelector, useAppDispatch } from '@/Redux/hooks'
 import { Divider, Flex, Text } from '@chakra-ui/react'
 import SingleTaskDisplay from './SingleTaskDisplay'
+import { useEffect } from 'react'
+import { getAllTasks } from '@/Redux/features/tasksSlice'
 
 const TaskDisplay = () => {
 	const { tasks } = useAppSelector((state) => state.tasks)
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		dispatch(getAllTasks())
+	}, [dispatch])
 
 	return (
 		<Flex
