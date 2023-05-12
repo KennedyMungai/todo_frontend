@@ -19,7 +19,7 @@ interface Tasks {
 	is_loading: boolean
 }
 
-const initialState = {
+const initialState: Tasks = {
 	tasks: [],
 	is_loading: false
 }
@@ -28,7 +28,22 @@ const tasksSlice = createSlice({
 	name: 'task',
 	initialState,
 	reducers: {},
-	extraReducers: (builder) => {}
+	extraReducers: (builder) => {
+		builder
+			.addCase(getAllTasks.pending, (state) => {
+				state.is_loading = true
+			})
+			.addCase(
+				getAllTasks.fulfilled,
+				(state, action: PayloadAction<Tasks>) => {
+					state.is_loading = false
+					state.tasks = action.payload.tasks
+				}
+			)
+			.addCase(getAllTasks.rejected, (state) => {
+				state.is_loading = false
+			})
+	}
 })
 
 export default tasksSlice.reducer
