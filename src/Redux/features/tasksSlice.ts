@@ -15,12 +15,7 @@ interface Task {
 
 type Tasks = Task[]
 
-const initialState: Task = {
-	task_content: '',
-	is_complete: false,
-	date_created: new Date(),
-	is_loading: false
-}
+const initialState: Tasks = []
 
 const tasksSlice = createSlice({
 	name: 'task',
