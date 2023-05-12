@@ -10,12 +10,19 @@ interface Task {
 	task_content: string
 	is_complete: boolean
 	date_created: Date
+}
+
+type TasksType = Task[]
+
+interface Tasks {
+	tasks: TasksType
 	is_loading: boolean
 }
 
-type Tasks = Task[]
-
-const initialState: Tasks = []
+const initialState = {
+	tasks: [],
+	is_loading: false
+}
 
 const tasksSlice = createSlice({
 	name: 'task',
