@@ -1,3 +1,9 @@
+import TaskDisplay from '@/Components/TaskDisplay'
+
 export default function Home() {
-	return <p>Hello World</p>
+	return (
+		<div>
+			<TaskDisplay />
+		</div>
+	)
 }
