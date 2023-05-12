@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const getAllTasks = createAsyncThunk('tasks/getAllTasks', async () => {
+export const getAllTasks = createAsyncThunk('tasks/getAllTasks', async () => {
 	const tasks = await axios.get('http://localhost:8000/tasks')
 	return tasks.data
 })
